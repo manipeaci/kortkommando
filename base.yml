@@ -12,15 +12,15 @@ global_vars:
   - name: firstname
     type: echo
     params:
-      echo: Manfred   # < —  Change this
+      echo: Förnamn   # < —  Change this
   - name: lastname
     type: echo
     params:
-      echo: Högström    # < —  Change this
+      echo: Efternamn    # < —  Change this
   - name: email
     type: echo
     params:
-      echo: manipeaci@gmail.com   # < —  Change this
+      echo: Email   # < —  Change this
 
 matches:
 
@@ -90,3 +90,5 @@ matches:
   - trigger: "__deg"
     replace: "°"
 
+  - trigger: "__neq"
+    replace: "≠"
