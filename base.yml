@@ -1,0 +1,92 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+global_vars:
+  - name: firstname
+    type: echo
+    params:
+      echo: Manfred   # < —  Change this
+  - name: lastname
+    type: echo
+    params:
+      echo: Högström    # < —  Change this
+  - name: email
+    type: echo
+    params:
+      echo: manipeaci@gmail.com   # < —  Change this
+
+matches:
+
+  # DATES
+
+  # Full date
+  - trigger: "::yy"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+      
+  # Weeknumber
+  - trigger: "::v."
+    replace: "v. {{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%-W"
+
+  # Short date
+  - trigger: "::dd"
+    replace: "{{mydate}}$|$"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%-d/%-m"
+
+
+  # CONTACT AND SIGNATURES
+
+
+  # Email
+  - trigger: "::@@"
+    replace: "{{email}}"
+
+  # Name
+  - trigger: ":://"
+    replace: "\n– {{firstname}}"
+
+
+
+# COMMON CHARACTERS
+
+  - trigger: "---"
+    replace: "— "
+
+  - trigger: "__*"
+    replace: "·"
+
+  - trigger: "__-"
+    replace: "−"
+
+  - trigger: "__x"
+    replace: "×"
+
+  - trigger: "__/"
+    replace: "÷"
+
+  - trigger: "__="
+    replace: "≈"
+
+  - trigger: "__deg"
+    replace: "°"
+
