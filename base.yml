@@ -12,15 +12,15 @@ global_vars:
   - name: firstname
     type: echo
     params:
-      echo: Förnamn   # < —  Change this
+      echo: Manfred   # < —  Change this
   - name: lastname
     type: echo
     params:
-      echo: Efternamn    # < —  Change this
+      echo: Högström    # < —  Change this
   - name: email
     type: echo
     params:
-      echo: Email   # < —  Change this
+      echo: manfred.hogstrom@nbg.nu   # < —  Change this
 
 matches:
 
@@ -92,3 +92,7 @@ matches:
 
   - trigger: "__neq"
     replace: "≠"
+
+# TEACHING
+  - regex: "::pp\\((?P<person>.*)\\)"
+    replace: "{{person}} av 29 poäng.\n10 p eller mer bedöms som godkänt."
